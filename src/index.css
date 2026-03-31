@@ -518,14 +518,14 @@ label.create_btn, .guest_login_btn{
 
 .check_box_text::after, .guest_login_text::after{
     content: "";
-    background-image: url("./src/assets/x_icon.png");
+    background-image: url("/x_icon.png");
     background-size: 100%;
     width: 10px;
     height: 10px;
     margin-left: 1rem;
 }
 .create_btn input:checked + .check_box_text::after, .guest_login_btn input:checked + .guest_login_text::after{
-    background-image: url("./src/assets/check_icon.png");
+    background-image: url("/check_icon.png");
 }
 
 .start_game_btn{
