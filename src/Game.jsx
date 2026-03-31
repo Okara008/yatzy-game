@@ -50,7 +50,7 @@ function Game(){
         isplayer1Ref.current ?  dice_starting_index.current = 0 :  dice_starting_index.current = 5;
 
         setClickCount(c => c + 1)
-        
+        disable_playBtn(true)
     }
 
     const return_dice_indexes = (indexes)=>{
@@ -206,11 +206,11 @@ function Game(){
         setHasUnsavedChanges(true)
     }
 
-    /*useEffect(()=>{
-        getNames({p1: "James", p2: "Kelly"})
-    }, [])*/
+    useEffect(()=>{
+        getNames({p1: "", p2: ""})
+    }, [])
 
-    useEffect(() =>{
+    /*useEffect(() =>{
         const handleBeforeUnload = (event) => {
             if(hasUnsavedChanges){
                 event.preventDefault();
@@ -222,7 +222,7 @@ function Game(){
         return ()=>{
             window.removeEventListener("beforeunload", handleBeforeUnload)
         }
-    }, [hasUnsavedChanges])
+    }, [hasUnsavedChanges])*/
     
     const updateOutcome = async (name, outcome, score) => {
         try {

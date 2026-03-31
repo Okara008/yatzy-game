@@ -304,7 +304,10 @@ function Board({toggleRestart, hasRestarted, playTriggered, activeBoxP1, disable
             default:
                 break;
         }
+        console.log(totalp2Ref.current);
+
         setTotalp1([...totalp1Ref.current])
+        setTotalp2([...totalp2Ref.current])
     }
 
     return(
