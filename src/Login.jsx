@@ -134,13 +134,14 @@ function Login({getNames}) {
     async function validate_user_exists(name, index){
         if(!name) return false;
         setIsLoading(true);
+        console.log("s");
         try {
             const response = await fetch("https://yatzy-backend.infinityfreeapp.com/api_validate_user_exists.php", {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify({ name: name })
             });
-            console.log("response");
+            console.log(response);
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
