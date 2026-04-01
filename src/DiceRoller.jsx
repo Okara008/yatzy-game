@@ -43,15 +43,15 @@ function DiceRoller({player, numOfRolls, dice_starting_index, return_dice_indexe
                     continue
                 }
                 
-                // if(dice_random_indexes.current.length == num_of_dices){
-                //     let rand = Math.floor(Math.random() * 6);
-                //     if(!element.classList.contains("confirmedDice")){
-                //         dice_random_indexes.current[array_index] = rand; 
-                //     }
-                // }else{
-                //     dice_random_indexes.current.push(Math.floor(Math.random() * 6))
-                // }
-                dice_random_indexes.current = [0, 0, 0, 0, 3];
+                if(dice_random_indexes.current.length == num_of_dices){
+                    let rand = Math.floor(Math.random() * 6);
+                    if(!element.classList.contains("confirmedDice")){
+                        dice_random_indexes.current[array_index] = rand; 
+                    }
+                }else{
+                    dice_random_indexes.current.push(Math.floor(Math.random() * 6))
+                }
+                // dice_random_indexes.current = [0, 0, 0, 0, 3];
                 element.src = imgPhotos.current[dice_random_indexes.current[array_index]]
             }
             

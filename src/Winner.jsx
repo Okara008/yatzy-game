@@ -1,6 +1,7 @@
 import IMG from "./assets/restart.svg"
 import {useState } from "react"
 
+
 function Winner({winner_name, wasWon, restartGame , playerStats, isGuest}){
     const [showStats, setShowStats] = useState({p1: false, p2: false})
 
