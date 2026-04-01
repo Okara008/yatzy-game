@@ -143,7 +143,7 @@ function Game(){
 
     const getPlayersStats = async (name) => {
         try {
-            const response = await fetch("http://localhost/PHP/Yatzy/api_retrieve_stats.php", {
+            const response = await fetch("https://yatzy-backend.infinityfreeapp.com/api_retrieve_stats.php", {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify({ name: name})
@@ -206,11 +206,11 @@ function Game(){
         setHasUnsavedChanges(true)
     }
 
-    useEffect(()=>{
+    /*useEffect(()=>{
         getNames({p1: "", p2: ""})
-    }, [])
+    }, [])*/
 
-    /*useEffect(() =>{
+    useEffect(() =>{
         const handleBeforeUnload = (event) => {
             if(hasUnsavedChanges){
                 event.preventDefault();
@@ -222,11 +222,11 @@ function Game(){
         return ()=>{
             window.removeEventListener("beforeunload", handleBeforeUnload)
         }
-    }, [hasUnsavedChanges])*/
+    }, [hasUnsavedChanges])
     
     const updateOutcome = async (name, outcome, score) => {
         try {
-            const response = await fetch("http://localhost/PHP/Yatzy/api_game_outcome.php", {
+            const response = await fetch("https://yatzy-backend.infinityfreeapp.com/api_game_outcome.php", {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify({ name: name, outcome: outcome, score: score})

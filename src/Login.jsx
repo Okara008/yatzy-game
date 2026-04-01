@@ -104,7 +104,7 @@ function Login({getNames}) {
 
     async function create_user_row(name, index){
         try{
-            const response = await fetch("http://localhost/PHP/Yatzy/api_insert_new_user.php",{
+            const response = await fetch("https://yatzy-backend.infinityfreeapp.com/api_insert_new_user.php",{
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -135,7 +135,7 @@ function Login({getNames}) {
         if(!name) return false;
         setIsLoading(true);
         try {
-            const response = await fetch("http://localhost/PHP/Yatzy/api_validate_user_exists.php", {
+            const response = await fetch("https://yatzy-backend.infinityfreeapp.com/api_validate_user_exists.php", {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify({ name: name })
