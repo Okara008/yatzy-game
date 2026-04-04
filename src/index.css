@@ -1,19 +1,22 @@
 *{
     box-sizing: border-box;
     margin: 0;
+    overflow-x: hidden;
     padding: 0;
 }
 
 html{
+    font-family: 'Times New Roman', Times, serif;
     font-size: 15px;
 }
 
 body{
+    padding: .5rem;
     max-width: 900px;
     margin: 0 auto;
-    padding: 1rem;
     background-color: lightsalmon;
 }
+
 /* Score Board */
 header{
     background-color: rgb(153, 55, 38) ;
@@ -334,13 +337,17 @@ main section button{
     position: absolute;
     background-color: brown;
     width: 100%;
-    left: 0;
+    max-width: 50rem;
+    min-height: 15rem;
+    left: 50%;
+    transform: translateX(-50%);
     padding: 2rem;
     top: 20%;
     text-align: center;
     color: black;
     text-transform: uppercase;
     opacity: .95;
+    border-radius: .5rem;
 }
 
 #winnerSection h3{
@@ -442,8 +449,8 @@ main section button{
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     background-color: rgba(0, 0, 0, .6);
 }
 
@@ -518,14 +525,14 @@ label.create_btn, .guest_login_btn{
 
 .check_box_text::after, .guest_login_text::after{
     content: "";
-    background-image: url("/x_icon.png");
+    background-image: url("./src/assets/x_icon.png");
     background-size: 100%;
     width: 10px;
     height: 10px;
     margin-left: 1rem;
 }
 .create_btn input:checked + .check_box_text::after, .guest_login_btn input:checked + .guest_login_text::after{
-    background-image: url("/check_icon.png");
+    background-image: url("./src/assets/check_icon.png");
 }
 
 .start_game_btn{
@@ -573,35 +580,3 @@ label.create_btn, .guest_login_btn{
     }
 }
 
-@media screen and (max-width: 700px) {
-    html{
-        font-size: 14px;
-    }
-
-    main{
-        gap: 3rem;
-    }
-
-    main section div{
-        gap: .8rem;
-    }
-
-    .moveImg{
-        width: 2.8rem;
-        height: 2.8rem;
-    }
-
-    main section button{
-        width: 2.8rem;
-        font-size: 1rem;
-        height: 2.8rem;
-    }
-
-    .bonus progress{
-        width: 2.5rem;
-    }
-
-    .bonus b{
-        font-size: 1.3rem;
-    }
-}

@@ -50,7 +50,7 @@ function Game(){
         isplayer1Ref.current ?  dice_starting_index.current = 0 :  dice_starting_index.current = 5;
 
         setClickCount(c => c + 1)
-        disable_playBtn(true)
+        
     }
 
     const return_dice_indexes = (indexes)=>{
@@ -143,7 +143,7 @@ function Game(){
 
     const getPlayersStats = async (name) => {
         try {
-            const response = await fetch("https://yatzy-backend.infinityfreeapp.com/api_retrieve_stats.php", {
+            const response = await fetch("http://localhost/PHP/Yatzy/api_retrieve_stats.php", {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify({ name: name})
@@ -206,9 +206,9 @@ function Game(){
         setHasUnsavedChanges(true)
     }
 
-    /*useEffect(()=>{
-        getNames({p1: "", p2: ""})
-    }, [])*/
+    // useEffect(()=>{
+    //     getNames({p1: "ken", p2: "kelly"})
+    // }, [])
 
     useEffect(() =>{
         const handleBeforeUnload = (event) => {
@@ -226,7 +226,7 @@ function Game(){
     
     const updateOutcome = async (name, outcome, score) => {
         try {
-            const response = await fetch("https://yatzy-backend.infinityfreeapp.com/api_game_outcome.php", {
+            const response = await fetch("http://localhost/PHP/Yatzy/api_game_outcome.php", {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify({ name: name, outcome: outcome, score: score})

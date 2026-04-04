@@ -24,17 +24,17 @@ function Board({toggleRestart, hasRestarted, playTriggered, activeBoxP1, disable
     const [bonusp2, setBonusp2] = useState(0)
     const bonusp2Ref = useRef(0)
 
-    /*const totalp1Ref = useRef([3, 6, 3, 20, 15, 18, 23, 0, 25, 30, 0, 0, 0])
-    const [totalp1, setTotalp1] = useState([3, 6, 3, 20, 15, 18, 23, 0, 25, 30, 0, 0, 0])
-    const finalTotalp1Ref = useRef([3, 6, 3, 20, 15, 18, 23, 0, 25, 30, 0, 0, -1])
+    // const totalp1Ref = useRef([3, 6, 3, 20, 15, 18, 23, 0, 25, 30, 0, 0, 0])
+    // const [totalp1, setTotalp1] = useState([3, 6, 3, 20, 15, 18, 23, 0, 25, 30, 0, 0, 0])
+    // const finalTotalp1Ref = useRef([3, 6, 3, 20, 15, 18, 23, 0, 25, 30, 0, 0, 0])
     
-    const [totalp2, setTotalp2] = useState([1, 4, 9, 4, 10, 18, 0, 28, 25, 30, 0, 50, 0])
-    const totalp2Ref = useRef([1, 4, 9, 4, 10, 18, 0, 28, 25, 30, 0, 50, 0])
-    const finalTotalp2Ref = useRef([1, 4, 9, 4, 10, 18, 0, 28, 25, 30, 0, 50, -1])
+    // const [totalp2, setTotalp2] = useState([1, 4, 9, 4, 10, 18, 0, 28, 25, 30, 0, 50, 0])
+    // const totalp2Ref = useRef([1, 4, 9, 4, 10, 18, 0, 28, 25, 30, 0, 50, 0])
+    // const finalTotalp2Ref = useRef([1, 4, 9, 4, 10, 18, 0, 28, 25, 30, 0, 50, 0])
 
-    useEffect(() => {
-        getTotalScore(finalTotalp1Ref.current, finalTotalp2Ref.current)
-    })*/
+    // useEffect(() => {
+    //     getTotalScore(finalTotalp1Ref.current, finalTotalp2Ref.current)
+    // })
 
     const totalp1Ref = useRef([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
     const [totalp1, setTotalp1] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
@@ -304,10 +304,7 @@ function Board({toggleRestart, hasRestarted, playTriggered, activeBoxP1, disable
             default:
                 break;
         }
-        console.log(totalp2Ref.current);
-
         setTotalp1([...totalp1Ref.current])
-        setTotalp2([...totalp2Ref.current])
     }
 
     return(

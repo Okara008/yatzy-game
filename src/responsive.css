@@ -1,0 +1,106 @@
+@media screen and (max-width: 600px) {
+    html{
+        font-size: 14px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    main{
+        gap: 3rem;
+    }
+
+    main section div{
+        gap: .8rem;
+    }
+
+    .moveImg{
+        width: 2.8rem;
+        height: 2.8rem;
+    }
+
+    main section button{
+        width: 2.8rem;
+        font-size: 1rem;
+        height: 2.8rem;
+    }
+
+    .bonus progress{
+        width: 2.5rem;
+    }
+
+    .bonus b{
+        font-size: 1.3rem;
+    }
+
+    /* Board */
+    main{
+        margin: .5rem auto 1rem auto ;
+        gap: 5rem;
+    }
+    
+    /* Login */
+    .form_content{
+        grid-template-columns: 1fr;
+    }
+    
+    /* Dice Rollers */
+    article{
+        display: block;
+        margin: 0 auto;
+    }
+    
+    .diceRoller{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin-block: 1rem;
+        gap: 1rem;
+    }
+        
+    .diceRolles{
+        width: 3.5rem;
+        height: 3.5rem;
+        object-fit: 100%;
+        border-radius: .7rem;
+    }
+    
+    /* Winner */
+    .statsContainer{
+        flex-direction: column;
+    }
+
+}    
+
+@media screen and (max-width: 450px) {
+    /* Button */
+    footer{
+        display: flex;
+        gap: 2rem;
+        flex-direction: column;
+        margin: 0 auto;
+        justify-content: center;
+    }
+        
+    #btnRoll{
+        width: 100%;
+    }
+        
+    #btnPlay{
+        width: 100%;
+        padding: .8rem;
+        background-color: green;
+        border: .3rem solid rgb(3, 39, 3);
+        color: white;
+        text-transform: uppercase;
+        font-size: 1.4rem;
+        font-weight: bold;
+    }
+    
+    main{
+        margin: .5rem 0 1rem 0 ;
+    }
+    
+}
