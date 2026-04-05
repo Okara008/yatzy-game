@@ -206,23 +206,23 @@ function Game(){
         setHasUnsavedChanges(true)
     }
 
-    useEffect(()=>{
-        getNames({p1: "", p2: ""})
-    }, [])
+    // useEffect(()=>{
+    //     getNames({p1: "", p2: ""})
+    // }, [])
 
-    // useEffect(() =>{
-    //     const handleBeforeUnload = (event) => {
-    //         if(hasUnsavedChanges){
-    //             event.preventDefault();
-    //             event.returnValue = '';
+    useEffect(() =>{
+        const handleBeforeUnload = (event) => {
+            if(hasUnsavedChanges){
+                event.preventDefault();
+                event.returnValue = '';
 
-    //         }
-    //     }
-    //     window.addEventListener("beforeunload", handleBeforeUnload)
-    //     return ()=>{
-    //         window.removeEventListener("beforeunload", handleBeforeUnload)
-    //     }
-    // }, [hasUnsavedChanges])
+            }
+        }
+        window.addEventListener("beforeunload", handleBeforeUnload)
+        return ()=>{
+            window.removeEventListener("beforeunload", handleBeforeUnload)
+        }
+    }, [hasUnsavedChanges])
     
     const updateOutcome = async (name, outcome, score) => {
         try {
