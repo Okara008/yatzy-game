@@ -318,7 +318,7 @@ function Board({toggleRestart, hasRestarted, playTriggered, activeBoxP1, disable
                 <Btn_cell image={image6} content="Count only 6's" boxFocus={boxFocus} totalp1={totalp1[5]} totalp2={totalp2[5]}/>
                 
                 <div className="bonus">
-                    <div><small>BONUS</small> <b>+35</b></div>
+                    <div><small>BONU</small> <b>+35</b></div>
                     <div>
                         <p>{bonusp1}/63</p>
                         <progress value={bonusp1} max='63'/>
