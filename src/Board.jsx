@@ -310,12 +310,12 @@ function Board({toggleRestart, hasRestarted, playTriggered, activeBoxP1, disable
     return(
         <main>
             <section>
-                <Btn_cell image={image1} content="Count only 1's" boxFocus={boxFocus} totalp1={totalp1[0]} totalp2={totalp2[0]}/>
-                <Btn_cell image={image2} content="Count only 2's" boxFocus={boxFocus} totalp1={totalp1[1]} totalp2={totalp2[1]}/>
-                <Btn_cell image={image3} content="Count only 3's" boxFocus={boxFocus} totalp1={totalp1[2]} totalp2={totalp2[2]}/>
-                <Btn_cell image={image4} content="Count only 4's" boxFocus={boxFocus} totalp1={totalp1[3]} totalp2={totalp2[3]}/>
-                <Btn_cell image={image5} content="Count only 5's" boxFocus={boxFocus} totalp1={totalp1[4]} totalp2={totalp2[4]}/>
-                <Btn_cell image={image6} content="Count only 6's" boxFocus={boxFocus} totalp1={totalp1[5]} totalp2={totalp2[5]}/>
+                <Btn_cell image={image1} content="Count only 1s" boxFocus={boxFocus} totalp1={totalp1[0]} totalp2={totalp2[0]}/>
+                <Btn_cell image={image2} content="Count only 2s" boxFocus={boxFocus} totalp1={totalp1[1]} totalp2={totalp2[1]}/>
+                <Btn_cell image={image3} content="Count only 3s" boxFocus={boxFocus} totalp1={totalp1[2]} totalp2={totalp2[2]}/>
+                <Btn_cell image={image4} content="Count only 4s" boxFocus={boxFocus} totalp1={totalp1[3]} totalp2={totalp2[3]}/>
+                <Btn_cell image={image5} content="Count only 5s" boxFocus={boxFocus} totalp1={totalp1[4]} totalp2={totalp2[4]}/>
+                <Btn_cell image={image6} content="Count only 6s" boxFocus={boxFocus} totalp1={totalp1[5]} totalp2={totalp2[5]}/>
                 
                 <div className="bonus">
                     <div><small>BONUS</small> <b>+35</b></div>
@@ -331,13 +331,13 @@ function Board({toggleRestart, hasRestarted, playTriggered, activeBoxP1, disable
             </section>
 
             <section>
-                <Btn_cell image={image3x} content="Count only with 3 of a kind" boxFocus={boxFocus} totalp1={totalp1[6]} totalp2={totalp2[6]}/>
-                <Btn_cell image={image4x} content="Count only with 4 of a kind" boxFocus={boxFocus} totalp1={totalp1[7]} totalp2={totalp2[7]}/>
-                <Btn_cell image={image23} content="Count only with 2 of a kind & 3 of a kind (25 pts)" boxFocus={boxFocus} totalp1={totalp1[8]} totalp2={totalp2[8]}/>
-                <Btn_cell image={imageSmall} content="Count only with sequence of 4 (30 pts)" boxFocus={boxFocus} totalp1={totalp1[9]} totalp2={totalp2[9]}/>
-                <Btn_cell image={imageLarge} content="Count only with sequence of 5 (40 pts)" boxFocus={boxFocus} totalp1={totalp1[10]} totalp2={totalp2[10]}/>
-                <Btn_cell image={imageFull} content="Count only with 5 of a kind (50 pts)" boxFocus={boxFocus} totalp1={totalp1[11]} totalp2={totalp2[11]}/>
-                <Btn_cell image={imageChance} content="Sum of any combination" boxFocus={boxFocus} totalp1={totalp1[12]} totalp2={totalp2[12]}/>
+                <Btn_cell image={image3x} content="3 of a kind" boxFocus={boxFocus} totalp1={totalp1[6]} totalp2={totalp2[6]}/>
+                <Btn_cell image={image4x} content="4 of a kind" boxFocus={boxFocus} totalp1={totalp1[7]} totalp2={totalp2[7]}/>
+                <Btn_cell image={image23} content="2 of a kind & 3 of a kind (25 pts)" boxFocus={boxFocus} totalp1={totalp1[8]} totalp2={totalp2[8]}/>
+                <Btn_cell image={imageSmall} content="Sequence of 4 (30 pts)" boxFocus={boxFocus} totalp1={totalp1[9]} totalp2={totalp2[9]}/>
+                <Btn_cell image={imageLarge} content="Sequence of 5 (40 pts)" boxFocus={boxFocus} totalp1={totalp1[10]} totalp2={totalp2[10]}/>
+                <Btn_cell image={imageFull} content="5 of a kind (50 pts)" boxFocus={boxFocus} totalp1={totalp1[11]} totalp2={totalp2[11]}/>
+                <Btn_cell image={imageChance} content="Any combination" boxFocus={boxFocus} totalp1={totalp1[12]} totalp2={totalp2[12]}/>
             </section>
         </main>
     )
