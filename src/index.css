@@ -157,28 +157,24 @@ footer{
     border-radius: .5rem;
 }
 
-#playerCircle{
-    background-color: green;
+#playerCircle, #playerSquare{
     width: 1.5rem;
     height: 1.5rem;
     left: 1rem;
-    border-radius: 50%;
     top: 50%;
     transform: translateY(-50%);
     position: absolute;
     box-shadow: 0 0 5px black inset;
 }
 
+#playerCircle{
+    border-radius: 50%;
+    background-color: green;
+}
+
 #playerSquare{
     border-radius: 20%;
     background-color: yellow;
-    width: 1.5rem;
-    height: 1.5rem;
-    left: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
-    position: absolute;
-    box-shadow: 0 0 5px black inset;
 }
 
 /* Board */
