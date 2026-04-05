@@ -206,9 +206,9 @@ function Game(){
         setHasUnsavedChanges(true)
     }
 
-    useEffect(()=>{
-        getNames({p1: "", p2: ""})
-    }, [])
+    // useEffect(()=>{
+    //     getNames({p1: "", p2: ""})
+    // }, [])
 
     useEffect(() =>{
         const handleBeforeUnload = (event) => {

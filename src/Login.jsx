@@ -140,12 +140,12 @@ function Login({getNames}) {
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify({ name: name })
             });
-            
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             
-            const data = await response.json();
+            const text = await response.text(); 
+            const data = JSON.parse(text); 
             if(index == 0){
                 setErrorMessage(prev => ({...prev, p1: data.message}));
             }else{
