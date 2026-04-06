@@ -305,6 +305,7 @@ function Board({toggleRestart, hasRestarted, playTriggered, activeBoxP1, disable
                 break;
         }
         setTotalp1([...totalp1Ref.current])
+        setTotalp2([...totalp2Ref.current])
     }
 
     return(

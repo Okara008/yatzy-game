@@ -1,0 +1,126 @@
+#winnerSection{
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: brown;
+    animation: background_spread 3s 1 ease-in-out;
+    width: 100%;
+    min-height: 15rem;
+    padding: 2rem;
+    border-radius: .5rem;
+    color: black;
+    text-align: center;
+    text-transform: uppercase;
+    opacity: .95;
+    overflow: hidden;
+}
+
+#winnerSection h3{
+    font-size: 1.2rem;
+    color: wheat;
+    margin-bottom: .5rem;
+}
+
+#winner_name_display{
+    font-size: 3rem;
+    color: yellow;
+    font-family: cursive;
+    animation: text_fade 2s 1 linear;
+}
+
+#restartGame{
+    top: 2rem;
+    right: 1rem;
+    position: absolute;
+    border: none;
+    border-radius: .7rem;
+    background-color: transparent;
+    color:  blue;
+    text-transform: capitalize;
+    padding: .5rem;
+    animation: rotate 4s infinite linear;
+    animation-name: rotate;
+    animation-duration: 4s;
+}
+
+#restartImg{
+    width: 2rem;
+}
+
+#restartGame:hover{
+    filter: drop-shadow(0 0 3px black);
+    animation: rotate 0;
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+#restartGame:active{
+    transform: scale(1);
+}
+
+.statsContainer{
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 2rem
+}
+
+.statsContainer table{
+    border-collapse: collapse;
+}
+
+.statsContainer th{
+    border-right: .2rem solid black;
+    padding-right: 1rem;
+    color: wheat;
+}
+
+.statsContainer td{
+    border-left: .2rem solid black;
+    color: greenyellow;
+    padding-left: 1rem;
+    max-width: 7rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    word-break: keep-all;
+}
+
+.view_stats_btn{
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: rgb(153, 55, 38);
+    border: none;
+    font-size: .8rem;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer
+}
+
+.view_main_stats{
+    text-align: left;
+    margin-top: 1rem;
+    font-size: 1rem;
+    background-color: rgb(153, 55, 38);
+    padding: 1rem;
+    font-family: monospace;
+}
+
+@keyframes background_spread {
+    from{
+        width: 20rem;
+    }
+    to{
+        width: 100%;
+    }
+}
+@keyframes text_fade {
+    from{
+        opacity: 0;
+        transform: scale(2);
+    }
+    to{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
