@@ -41,11 +41,6 @@
         gap: 2rem;
     }
     
-    /* Login */
-    .form_content{
-        grid-template-columns: 1fr;
-    }
-    
     /* Dice Rollers */
     article{
         display: block;

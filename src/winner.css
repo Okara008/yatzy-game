@@ -1,8 +1,8 @@
 #winnerSection{
     position: absolute;
-    top: 20%;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
     background-color: brown;
     animation: background_spread 3s 1 ease-in-out;
     width: 100%;
@@ -87,7 +87,7 @@
 }
 
 .view_stats_btn{
-    padding: 8px 16px;
+    padding: .5rem 1rem;
     background-color: #4CAF50;
     color: rgb(153, 55, 38);
     border: none;
@@ -123,4 +123,17 @@
         opacity: 1;
         transform: scale(1);
     }
+}
+
+@media screen and (max-width: 600px) {
+    .form_content{
+        grid-template-columns: 1fr;
+    }
+    
+    .view_main_stats{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
 }

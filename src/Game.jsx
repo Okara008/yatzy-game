@@ -50,7 +50,7 @@ function Game(){
         isplayer1Ref.current ?  dice_starting_index.current = 0 :  dice_starting_index.current = 5;
 
         setClickCount(c => c + 1)
-        
+        disable_playBtn(true)
     }
 
     const return_dice_indexes = (indexes)=>{

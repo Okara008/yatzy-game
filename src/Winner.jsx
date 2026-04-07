@@ -6,7 +6,7 @@ function Winner({winner_name, wasWon, restartGame , playerStats, isGuest}){
     const [showStats, setShowStats] = useState({p1: false, p2: false})
 
     const format_name = (name) => {
-        if (name) return name.charAt(name.length-1).toLowerCase() != 's' ? `${name}'s` : `${name}'`
+        if (name) return (name.charAt(name.length-1).toLowerCase() != 's' ? `${name}'s` : `${name}'`)
     } 
 
     return(
@@ -39,6 +39,10 @@ function Winner({winner_name, wasWon, restartGame , playerStats, isGuest}){
                                         <td>{playerStats.p1['losses']}</td>
                                     </tr>
                                     <tr>
+                                        <th>Average Points:</th>
+                                        <td>{playerStats.p1['avg_points']}</td>
+                                    </tr>
+                                    <tr>
                                         <th>Highest points:</th>
                                         <td>{playerStats.p1['highest_points']}</td>
                                     </tr>
@@ -67,6 +71,10 @@ function Winner({winner_name, wasWon, restartGame , playerStats, isGuest}){
                                 <tr>
                                     <th>Losses:</th>
                                     <td style={{color: "springgreen"}}>{playerStats.p2['losses']}</td>
+                                </tr>
+                                <tr>
+                                    <th>Average Points:</th>
+                                    <td style={{color: "springgreen"}}>{playerStats.p2['avg_points']}</td>
                                 </tr>
                                 <tr>
                                     <th>highest_points:</th>
