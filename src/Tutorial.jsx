@@ -9,7 +9,7 @@ import { useRef, useState } from 'react'
 function Tutorial({wasClicked, removeTutorial}) {
     const tutorial_display_ref = useRef([
         {img: tutorial_roll, info: "Hit the Roll button to play → You can roll up to 3 times on your turn."},
-        {img: tutorial_tool_tip, info: "Hover your cursor over each scoring box to learn how points are calculated."},
+        {img: tutorial_tool_tip, info: "Hover over / tap each scoring box to learn how points are calculated."},
         {img: tutorial_confirm_score, info: "Tap the box with your color to preview your points → Hit PLAY to keep them."},
         {img: tutorial_lock_dice, info: "Tap dice to lock them → locked dice won't change on next roll."},
         {img: tutorial_score_board, info: "Your total score appears here on the scoreboard."},
