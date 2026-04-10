@@ -47,8 +47,7 @@ function Game(){
         }
         if(clickCount < 3){
             const clickCount_number_boxes = Array.from(document.querySelectorAll(".clickCount"));
-            clickCount_number_boxes[clickCount].style.backgroundColor = "rgba(255,255,255,.4)"
-            clickCount_number_boxes[clickCount].style.borderColor = "transparent"
+            clickCount_number_boxes[clickCount].classList.add('clickCount_disable')
         }
 
         isplayer1Ref.current ?  dice_starting_index.current = 0 :  dice_starting_index.current = 5;
@@ -74,29 +73,34 @@ function Game(){
         setRollBtnDisabled(toDisable);
     }
 
-    const handle_play = () =>{
+    const reset_game = () =>{
         setClickCount(0);
         const clickCount_number_boxes = Array.from(document.querySelectorAll(".clickCount"));
         const rolling_dice = Array.from(document.querySelectorAll(".diceRolles"));
         clickCount_number_boxes.forEach(box => {
-            box.style.backgroundColor = "white"
-            box.style.borderColor = "black"
+            box.classList.remove('clickCount_disable')
         })
         rolling_dice.forEach(box => {
             box.src = DICE_COVER_IMG
         })
-        isplayer1Ref.current = !isplayer1Ref.current;
-        setisplayer1(isplayer1Ref.current)
         set_dice_indexes([])
-        playTriggeredRef.current ++
-        setPlayTriggered(playTriggeredRef.current)
+        
         disable_playBtn(true)
-
+    
         const confirmedDice = Array.from(document.querySelectorAll(".confirmedDice"))
         confirmedDice.forEach(dice =>{
             dice.classList.remove("confirmedDice");
         })
         disable_rollBtn(false)
+    }
+
+    const handle_play = () =>{
+        reset_game()
+        isplayer1Ref.current = !isplayer1Ref.current;
+        setisplayer1(isplayer1Ref.current)
+
+        playTriggeredRef.current ++
+        setPlayTriggered(playTriggeredRef.current)
     }
 
     const getTotalScore = async (score1, score2) =>{
@@ -200,15 +204,33 @@ function Game(){
     const restartGame = () =>{
         if(hasUnsavedChanges){
             const response = confirm("Are you sure you want to restart?")
-            console.log(response);
-            if(!response) return
+            if(response){
+                reset_game()
+                const cells = document.querySelectorAll(".pointBox");
+
+                cells.forEach(cell =>{
+                    cell.disabled = true
+                    if(cell.classList.contains("activeBox")){
+                        cell.classList.remove("activeBox")
+                    }
+                })
+
+                isplayer1Ref.current = true;
+                setisplayer1(isplayer1Ref.current)
+        
+                setHasRestarted(true)
+                const login_page = document.querySelector(".login_page");
+                login_page.classList.remove("hideSection")
+            } 
         }
-        const winner_page = document.querySelector("#winner_page");
-        winner_page.classList.add("hideSection")
-        disable_rollBtn(false)
-        setHasRestarted(true)
-        const login_page = document.querySelector(".login_page");
-        login_page.classList.remove("hideSection")
+        else{
+            const winner_page = document.querySelector("#winner_page");
+            winner_page.classList.add("hideSection")
+            disable_rollBtn(false)
+            setHasRestarted(true)
+            const login_page = document.querySelector(".login_page");
+            login_page.classList.remove("hideSection")
+        }
     }
 
     const getNames = (player_name) => {
