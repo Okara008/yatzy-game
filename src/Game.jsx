@@ -260,7 +260,7 @@ function Game(){
         setViewTutorial(false)
     }
 
-    return(<>
+    return(<div className='wrapper'>
         <Login getNames={getNames}/>
         <Tutorial wasClicked={viewTutorial} removeTutorial={removeTutorial}/>
         <button id="restart_current" title="Restart" onClick={restartGame}>
@@ -279,7 +279,7 @@ function Game(){
         <RollBtn triggerRoll={triggerRoll} handle_play={handle_play} disableRoll={isRollDisabled} disablePlay={isPlayDisabled} playerTurn={isplayer1}/>
         <Winner isGuest={isGuest} winner_name={winner_name} playerStats={playerStats} wasWon={wasWon} restartGame={restartGame}/>
     
-    </>)
+    </div>)
 }
 
 export default Game;

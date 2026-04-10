@@ -338,7 +338,7 @@ label.create_btn, .guest_login_btn{
 .helpIcon{
     position: absolute;
     z-index: 10;
-    top: 2%;
+    top: 1%;
     left: 90%;
     transform: translateX(-50%);
     background-color: transparent;
@@ -365,7 +365,7 @@ label.create_btn, .guest_login_btn{
 #restart_current{
     position: absolute;
     z-index: 10;
-    top: 3%;
+    top: 2%;
     left: 10%;
     transform: translateX(-50%);
     background-color: transparent;
