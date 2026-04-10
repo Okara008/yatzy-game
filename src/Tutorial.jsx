@@ -9,10 +9,10 @@ import { useRef, useState } from 'react'
 function Tutorial({wasClicked, removeTutorial}) {
     const tutorial_display_ref = useRef([
         {img: tutorial_roll, info: "Hit the Roll button to play → You can roll up to 3 times on your turn."},
+        {img: "", info: "No need to use all three rolls. Stop early if you're satisfied with your dice!"},
         {img: tutorial_tool_tip, info: "Hover over / tap each scoring box to learn how points are calculated."},
         {img: tutorial_lock_dice, info: "Tap dice to lock them → locked dice won't change on next roll."},
         {img: tutorial_confirm_score, info: "Tap the box with your color to preview your points → Hit PLAY to record that score for your turn."},
-        {img: "", info: "No need to use all three rolls. Stop early if you already you're satisfied with your dice!"},
         {img: tutorial_score_board, info: "Your total score appears here on the scoreboard."},
         {img: "", info: "After every cell is played, a winner is announced. If scores are tied, it's a draw."},
     ]) 
@@ -22,9 +22,8 @@ function Tutorial({wasClicked, removeTutorial}) {
     const [index_of_display, set_index_of_display] = useState(index_of_display_ref.current)
 
     const update_index = (num) => {
-        index_of_display_ref.current = index_of_display_ref.current + num
+        index_of_display_ref.current += num
         set_index_of_display(index_of_display_ref.current)
-
         set_disable_btn(pre => ({...pre, next: (index_of_display_ref.current === (tutorial_display_ref.current.length - 1) ? true : false)}))
         set_disable_btn(pre => ({...pre, prev: (index_of_display_ref.current === (0) ? true : false)}))
     }
