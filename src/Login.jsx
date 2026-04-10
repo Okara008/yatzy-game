@@ -189,7 +189,7 @@ function Login({getNames}) {
     }, [])
 
 return(
-    <div className="outerShell">
+    <div className="outerShell login_page">
         <form id="loginForm"  className="innertext">
             <h3>Welcome, Let's Play</h3>
             <div className="form_content">

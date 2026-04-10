@@ -1,0 +1,124 @@
+article{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0 auto;
+}
+
+main{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: .4rem rgb(80, 22, 12)  solid;
+    padding: 1rem;
+    border-radius: 2rem;
+    width: fit-content;
+    margin: .5rem 0 1rem 0 ;
+    gap: 5rem;
+}
+
+main section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: .7rem;
+    width: fit-content;
+}
+
+main section div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.imgTooltip{
+    overflow: visible;
+    position: relative;
+}
+
+.imgTooltip small{
+    position: absolute;
+    width: max-content;
+    max-width: 10rem;
+    /* white-space: nowrap; */
+    display: block;
+    font-weight: bold;
+    left: 1rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    top: 0;
+    padding: .2rem;
+    border-radius: 1rem 1rem 1rem 0;
+    cursor: pointer;
+    z-index: 10;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.moveImg:hover + small, .imgTooltip small:hover{
+    opacity: 1;
+    visibility: visible;
+    transition: all 2s;
+}
+
+.moveImg{
+    width: 3rem;
+    height: 3rem;
+    object-fit: cover;
+    object-position: 50%;
+    border-radius: .6rem;
+    border: .2rem solid rgb(65, 5, 5);
+}
+
+.moveImg:hover{
+    opacity: .7;
+    cursor: pointer;
+}
+
+main section button{
+    border: .2rem solid rgb(65, 5, 5);
+    font-family: monospace;
+    font-weight: bold;
+    border-radius: .6rem;
+    width: 3rem;
+    font-size: 1rem;
+    height: 3rem;
+}
+
+.yellowsquare{
+    background-color: rgba(255, 255, 0, 0.6);
+}
+
+.greensquare{
+    background-color: rgba(0, 128, 0, 0.6);
+}
+
+.pointBox:disabled{
+    color: rgba(0, 0, 0, .2);
+}
+
+.bonus{
+    width: fit-content;
+}
+
+.bonus div{
+    display: flex;
+    flex-direction: column;
+    width: 3rem;
+    gap: 0rem;
+    width: fit-content;
+}
+
+.bonus progress{
+    width: 3rem;
+}
+
+.bonus b{
+    font-family: cursive;
+    font-size: 1.5rem;
+}
+
+.activeBox{
+    background-color: rgba(255, 255, 255, .5);
+}

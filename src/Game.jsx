@@ -6,6 +6,9 @@ import ScoreBoard from './ScoreBoard.jsx'
 import {useState, useRef, useEffect} from 'react'
 import DICE_COVER_IMG from './assets/card_cover-Yatzy.svg';
 import Login from './Login.jsx'
+import Tutorial from './Tutorial.jsx'
+import helpIcon from './assets/help.png'
+import IMG from "./assets/restart.svg"
 
 function Game(){
     const dice_indexesRef = useRef([]);
@@ -28,6 +31,7 @@ function Game(){
     const [playerStats, setPlayerStats] = useState({p1: "", p2: ""})
     const playerStatsRef = useRef({p1: "", p2: ""})
     const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false)
+    const [viewTutorial, setViewTutorial] = useState(false)
 
     let hasFinished = useRef(true); 
     let bonusp1 = useRef(0);
@@ -156,7 +160,7 @@ function Game(){
     }
 
     const getWinner = async (finalScorep1Ref, name) => {
-        document.getElementById("winnerSection").classList.remove("hideSection")
+        document.getElementById("winner_page").classList.remove("hideSection")
         if(finalScorep1Ref.current > finalScorep2Ref.current){
             set_winner_name(name.p1)
             !isGuest.p1 ? await updateOutcome(name.p1, "wins", finalScorep1Ref.current) : null
@@ -176,10 +180,16 @@ function Game(){
             setWasWon(false)
         }
         disable_rollBtn(true)
-        const statsP1 = await getPlayersStats(name.p1);
-        const statsP2 = await getPlayersStats(name.p2);
-        playerStatsRef.current = { p1: statsP1, p2: statsP2 };
-        setPlayerStats({...playerStatsRef.current})
+        if(!isGuest.p1){
+            const stats = await getPlayersStats(name.p1);
+            playerStatsRef.current = {...playerStatsRef.current, p1: stats};
+            setPlayerStats({...playerStatsRef.current})
+        }
+        if(!isGuest.p2){
+            const stats = await getPlayersStats(name.p2);
+            playerStatsRef.current = {...playerStatsRef.current, p2: stats};
+            setPlayerStats({...playerStatsRef.current})
+        }
         setHasUnsavedChanges(false)
     }
     
@@ -188,10 +198,16 @@ function Game(){
     }
 
     const restartGame = () =>{
-        document.getElementById("winnerSection").classList.add("hideSection")
+        if(hasUnsavedChanges){
+            const response = confirm("Are you sure you want to restart?")
+            console.log(response);
+            if(!response) return
+        }
+        const winner_page = document.querySelector("#winner_page");
+        winner_page.classList.add("hideSection")
         disable_rollBtn(false)
         setHasRestarted(true)
-        const login_page = document.querySelector(".outerShell");
+        const login_page = document.querySelector(".login_page");
         login_page.classList.remove("hideSection")
     }
 
@@ -201,7 +217,7 @@ function Game(){
         playerNameRef.current = {p1: (player_name.p1 ? player_name.p1 : "Square"), p2: (player_name.p2 ? player_name.p2 : "Circle")}
         setName({...playerNameRef.current})
         
-        const login_page = document.querySelector(".outerShell");
+        const login_page = document.querySelector(".login_page");
         login_page.classList.add("hideSection")
         setHasUnsavedChanges(true)
     }
@@ -224,6 +240,7 @@ function Game(){
         }
     }, [hasUnsavedChanges])
     
+
     const updateOutcome = async (name, outcome, score) => {
         try {
             const response = await fetch("http://localhost/PHP/Yatzy/api_game_outcome.php", {
@@ -239,8 +256,20 @@ function Game(){
     
     }
 
+    const removeTutorial = ()=>{
+        setViewTutorial(false)
+    }
+
     return(<>
         <Login getNames={getNames}/>
+        <Tutorial wasClicked={viewTutorial} removeTutorial={removeTutorial}/>
+        <button id="restart_current" title="Restart" onClick={restartGame}>
+            <img src={IMG} alt="image" id="restartImg" />
+        </button>
+        <button title='How to play' className='helpIcon' onClick={() => setViewTutorial(true)}>
+            <img src={helpIcon} alt="How to play" />
+        </button>
+
         <ScoreBoard player_names={name} score1={finalTotalp1} score2 ={finalTotalp2}/>
         <article>
             <DiceRoller player="p1Dice" active={isplayer1} return_dice_indexes={return_dice_indexes} numOfRolls={clickCount} dice_starting_index={dice_starting_index.current} disable_rollBtn={disable_rollBtn}/>
