@@ -37,6 +37,7 @@ function Tutorial({wasClicked, removeTutorial}) {
         set_index_of_display(index_of_display_ref.current)
         set_disable_btn({prev: true, next: false})
     }, [wasClicked])
+    
     return(<>
         {wasClicked && ( 
             <div className="outerShell tutorial_page">

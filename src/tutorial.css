@@ -1,10 +1,10 @@
 .tutorialSection{
-    width: 50rem;
     position: relative;
+    width: 50rem;
     max-width: 100%;
     height: fit-content;
-    padding-block: 3rem;
     min-height: 20rem;
+    padding-block: 3rem;
     background-color: rgb(153, 55, 38);
     display: flex;
     align-items: center;
@@ -47,7 +47,7 @@
     border-bottom: .2rem solid #ffa07a;
     color: black;
     font-weight: bold;
-    font-family: cursive;
+    font-family: monospace;
     text-transform: capitalize;
     text-align: center;
 }
