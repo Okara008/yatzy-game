@@ -1,5 +1,5 @@
 import IMG from "./assets/restart.svg"
-import {useState } from "react"
+import {useState, useEffect} from "react"
 
 
 function Winner({winner_name, wasWon, restartGame , playerStats, isGuest}){
@@ -8,6 +8,10 @@ function Winner({winner_name, wasWon, restartGame , playerStats, isGuest}){
     const format_name = (name) => {
         if (name) return (name.charAt(name.length-1).toLowerCase() != 's' ? `${name}'s` : `${name}'`)
     } 
+
+    useEffect(()=>{
+        setShowStats(prev => ({p1: false, p2: false}))
+    }, [restartGame])
 
     return(
         <div  id="winner_page" className="outerShell hideSection">

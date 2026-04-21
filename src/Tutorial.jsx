@@ -4,6 +4,7 @@ import tutorial_lock_dice from './assets/tutorial_lock_dice.png'
 import tutorial_score_board from './assets/tutorial_score_board.png'
 import tutorial_tool_tip from './assets/tutorial_tool_tip.png'
 import tutorial_play_btn from './assets/tutorial_play_btn.png'
+import tutorial_bonus from './assets/tutorial_bonus.png'
 import x_button from './assets/x_icon.png'
 import { useEffect, useRef, useState } from 'react'
 
@@ -16,6 +17,7 @@ function Tutorial({wasClicked, removeTutorial}) {
         {img: tutorial_tool_tip, info: "Hover over / tap each scoring box to learn how points are calculated."},
         {img: tutorial_confirm_score, info: "Tap the box with your color to preview your points"},
         {img: tutorial_play_btn, info: "Hit PLAY to record your score."},
+        {img: tutorial_bonus, info: "If your left section total (1s to 6s) reaches 63 points, you earn a 35-points bonus."},
         {img: "", info: "Once you record a score in a box, you cannot use it again. Choose wisely!"},
         {img: tutorial_score_board, info: "Your total score appears here on the scoreboard."},
         {img: "", info: "After every cell is played, a winner is announced. If scores are tied, it's a draw."},
