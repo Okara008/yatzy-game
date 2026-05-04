@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect} from "react"
 
-function Login({getNames}) {
+function Login({getNames, viewLoginPage}) {
     let [name, setName] = useState({p1: "", p2: ""})
     let [errorMessage, setErrorMessage] = useState({p1: "", p2: ""})
     let isAuthenticated = useRef({p1:true, p2: true})
@@ -188,8 +188,9 @@ function Login({getNames}) {
         })
     }, [])
 
-return(
-    <div className="outerShell login_page">
+return(<>
+    {viewLoginPage &&
+        (<div className="outerShell login_page">
         <form id="loginForm"  className="innertext">
             <h3>Welcome, Let's Play Yatzy!!</h3>
             <div className="form_content">
@@ -228,7 +229,8 @@ return(
                 "Start Game" }</button>
         </form>
     </div>
-)
+    )}
+</>)
 }
 
 export default Login

@@ -2,7 +2,7 @@ import IMG from "./assets/restart.svg"
 import {useState, useEffect} from "react"
 
 
-function Winner({winner_name, wasWon, restartGame , playerStats, isGuest}){
+function Winner({viewWinnerPage, winner_name, wasWon, restartGame , playerStats, isGuest}){
     const [showStats, setShowStats] = useState({p1: false, p2: false})
 
     const format_name = (name) => {
@@ -13,8 +13,9 @@ function Winner({winner_name, wasWon, restartGame , playerStats, isGuest}){
         setShowStats(prev => ({p1: false, p2: false}))
     }, [restartGame])
 
-    return(
-        <div  id="winner_page" className="outerShell hideSection">
+    return(<>
+        {viewWinnerPage && (
+            <div  id="winner_page" className="outerShell">
             <section id="winnerSection">
                 <h3>{wasWon ? "Winner" : "Draw"}</h3>
                 <button id="restartGame" title="Restart" onClick={restartGame}>
@@ -93,6 +94,7 @@ function Winner({winner_name, wasWon, restartGame , playerStats, isGuest}){
                 </div>
             </section>
         </div>
-    )
+        )}
+    </>)
 }
 export default Winner

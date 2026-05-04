@@ -32,6 +32,8 @@ function Game(){
     const playerStatsRef = useRef({p1: "", p2: ""})
     const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false)
     const [viewTutorial, setViewTutorial] = useState(false)
+    const [viewLoginPage, setViewLoginPage] = useState(true)
+    const [viewWinnerPage, setViewWinnerPage] = useState(false)
 
     let hasFinished = useRef(true); 
     let bonusp1 = useRef(0);
@@ -164,7 +166,7 @@ function Game(){
     }
 
     const getWinner = async (finalScorep1Ref, name) => {
-        document.getElementById("winner_page").classList.remove("hideSection")
+        setViewWinnerPage(true)
         if(finalScorep1Ref.current > finalScorep2Ref.current){
             set_winner_name(name.p1)
             !isGuest.p1 ? await updateOutcome(name.p1, "wins", finalScorep1Ref.current) : null
@@ -217,19 +219,16 @@ function Game(){
 
                 isplayer1Ref.current = true;
                 setisplayer1(isplayer1Ref.current)
-        
+                setHasUnsavedChanges(false)
                 setHasRestarted(true)
-                const login_page = document.querySelector(".login_page");
-                login_page.classList.remove("hideSection")
+                setViewLoginPage(true)
             } 
         }
         else{
-            const winner_page = document.querySelector("#winner_page");
-            winner_page.classList.add("hideSection")
+            setViewWinnerPage(false)
             disable_rollBtn(false)
             setHasRestarted(true)
-            const login_page = document.querySelector(".login_page");
-            login_page.classList.remove("hideSection")
+            setViewLoginPage(true)
         }
     }
 
@@ -238,9 +237,7 @@ function Game(){
         setIsGuest({...isGuestRef.current})
         playerNameRef.current = {p1: (player_name.p1 ? player_name.p1 : "Square"), p2: (player_name.p2 ? player_name.p2 : "Circle")}
         setName({...playerNameRef.current})
-        
-        const login_page = document.querySelector(".login_page");
-        login_page.classList.add("hideSection")
+        setViewLoginPage(false)
         setHasUnsavedChanges(true)
     }
 
@@ -283,7 +280,7 @@ function Game(){
     }
 
     return(<div className='wrapper'>
-        <Login getNames={getNames}/>
+        <Login getNames={getNames} viewLoginPage={viewLoginPage}/>
         <Tutorial wasClicked={viewTutorial} removeTutorial={removeTutorial}/>
         <button id="restart_current" title="Restart" onClick={restartGame}>
             <img src={IMG} alt="image" id="restartImg" />
@@ -299,7 +296,7 @@ function Game(){
             <DiceRoller player="p2Dice" active={!isplayer1} return_dice_indexes={return_dice_indexes} numOfRolls={clickCount} dice_starting_index={dice_starting_index.current} disable_rollBtn={disable_rollBtn}/>
         </article>
         <RollBtn triggerRoll={triggerRoll} handle_play={handle_play} disableRoll={isRollDisabled} disablePlay={isPlayDisabled} playerTurn={isplayer1}/>
-        <Winner isGuest={isGuest} winner_name={winner_name} playerStats={playerStats} wasWon={wasWon} restartGame={restartGame}/>
+        <Winner viewWinnerPage={viewWinnerPage} isGuest={isGuest} winner_name={winner_name} playerStats={playerStats} wasWon={wasWon} restartGame={restartGame}/>
     
     </div>)
 }
