@@ -19,19 +19,19 @@ Two-player web-based Yatzy game built with React and PHP, featuring user account
 
 ## ⚙️ Setup
 
-### 1. Clone & install frontend
+### Clone & install frontend
 ```bash
 git clone https://github.com/Okara008/yatzy-game.git
 cd yatzy-game
 npm install
 npm run dev   # runs on http://localhost:5173
 ```
-## Backend (XAMPP / MAMP)
+### Backend (XAMPP / MAMP)
 - Copy PHP/ folder to htdocs/Yatzy/
 - Import database.sql (see below)
 - Update database.php with your DB credentials
 
-## Database (MySQL)
+### Database (MySQL)
 ```
 CREATE TABLE `registered_players` (
   `id` INT AUTO_INCREMENT PRIMARY KEY,
@@ -57,7 +57,7 @@ CREATE TABLE `registered_players` (
 - MySQL
 - XAMPP or MAMP
 
-📂 Project Structure
+## 📂 Project Structure
 ```
 yatzy-game/
 ├── public/
@@ -76,7 +76,7 @@ yatzy-game/
 ├── README.md
 └── package.json
 ```
-🔗 API Endpoints
+## 🔗 API Endpoints
 
 | Endpoint | Method | Description |
 |----------|--------|-------------|
@@ -86,10 +86,9 @@ yatzy-game/
 | `api_game_outcome.php` | POST | Update wins/losses/draws + high score |
 | `api_retrieve_stats.php` | POST | Get player statistics |
 
-📸 Screenshots
+## 📸 Screenshot
 <p>
-  <img src="assets/screenshots/game-board.png" width="45%" />
-  <img src="assets/screenshots/login.png" width="45%" />
+  <img src="src/assets/Screenshot_Readme_2.png" width="100%" />
 </p>
 
 ## 🚀 Live Demo
@@ -100,7 +99,7 @@ https://yatzy-game.vercel.app/
 - Mobile responsiveness improvements
 - AI opponent mode
 
-📄 License
+## 📄 License
 MIT
 
-Enjoy the game! 🎲
+Enjoy the game!
